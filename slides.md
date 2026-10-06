@@ -34,10 +34,14 @@ cjdk · jgo · JPype · scyjava · imglyb · PyImageJ · napari-imagej · Appose
   </div>
   <div class="mid">
     <h3>&nbsp;</h3>
-    <div class="box b"><b>JPype</b><small>same process</small></div>
-    <div class="arrow">⇆ JNI ⇆</div>
-    <div class="box b"><b>Appose</b><small>separate processes</small></div>
-    <div class="arrow">⇆ pipes + shared memory ⇆</div>
+    <div class="box b">
+        <b>JPype</b><small>same process</small>
+        <div class="arrow">⇆ JNI ⇆</div>
+    </div>
+    <div class="box b">
+        <b>Appose</b><small>separate processes</small>
+        <div class="arrow">⇆ pipes + shared memory ⇆</div>
+    </div>
     <div class="box l"><b>Jaunch</b><small>native launcher: JVM or Python</small></div>
   </div>
   <div class="col">
