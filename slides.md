@@ -28,7 +28,7 @@ cjdk · jgo · JPype · scyjava · imglyb · PyImageJ · napari-imagej · Appose
     <h3 class="java">Java world</h3>
     <div class="box j"><b>Fiji</b><small>distribution: ImageJ2 + curated plugins</small></div>
     <div class="box j"><b>ImageJ2</b><small>imagej-common · imagej-ops · imagej-legacy · updater</small></div>
-    <div class="box j"><b>ImageJ 1.x</b><small>the original ImageJ (<code>net.imagej:ij</code>)</small></div>
+    <div class="box j"><b>ImageJ (1.x)</b><small>the original ImageJ (<code>net.imagej:ij</code>)</small></div>
     <div class="box j"><b>SCIFIO</b> · <b>ImgLib2</b><small>image I/O · N-dimensional image data</small></div>
     <div class="box j"><b>SciJava</b><small>scijava-common · pom-scijava (the BOM)</small></div>
   </div>
@@ -77,7 +77,7 @@ Each side has a bottom layer that deals with "how do I get code and run it" and 
 | **jgo**, **Appose**, **Jaunch** | Tools for launching and connecting runtimes | <span class="py">Py</span> / <span class="java">Java</span> / native | `github.com/apposed` |
 
 <div class="callout">
-"ImageJ" alone is ambiguous: it can mean ImageJ 1.x, ImageJ2, or the whole ecosystem. Say which one you mean.
+"ImageJ" alone is ambiguous: it can mean the original ImageJ, ImageJ2, or the whole ecosystem. Say which one you mean.
 </div>
 
 ---
@@ -170,7 +170,7 @@ This Maven structure matters for the Python side too: jgo and scyjava resolve ex
 
 ---
 
-# The Python side: from "a JDK" to "napari"
+# The Python stack
 
 <div class="stack">
   <div class="layer p"><span class="name">napari-imagej</span><span class="desc">napari plugin: search and run Fiji commands, move layers ⇆ images</span><span class="chips"><span class="chip">imagej/napari-imagej</span></span></div>
@@ -198,6 +198,7 @@ flowchart LR
   pyij --> scy["scyjava"]
   pyij --> labeling["labeling"]
   pyij --> xarray["xarray / numpy"]
+  napari --> xarray
   imglyb --> jpype["JPype"]
   scy --> jpype
   scy --> jgo["jgo"]
@@ -213,7 +214,7 @@ flowchart LR
 ```
 
 <div class="callout">
-<b>scyjava</b> is the Python counterpart of <b>scijava-common</b>: a general foundation layer with nothing image-specific, used by PyImageJ and other Java-backed Python packages.
+<b>scyjava</b> is the Python counterpart of <b>scijava-common</b>: a general foundation layer with nothing image-specific, used by PyImageJ and other Java-backed Python packages such as CellProfiler and bffile.
 </div>
 
 ---
@@ -345,7 +346,7 @@ flowchart TB
 </div>
 
 <div class="callout">
-<b>imglib2-appose</b> wraps Appose NDArrays as ImgLib2 images (<code>ShmImg</code>), so Fiji images go to Python workers without copying.
+<b>imglib2-appose</b> wraps Appose NDArrays as ImgLib2 images (<code>ShmImg</code>), so Fiji images can go to Python workers without copying.
 </div>
 
 ---
@@ -522,8 +523,8 @@ Appose is symmetric: <b>appose-python</b> can also start a <b>Java or Groovy wor
 - **pom-scijava**: parent POM + Bill of Materials
 - **ImgLib2**: N-D images, views, algorithms
 - **SCIFIO**: image I/O (Bio-Formats bridge)
-- **ImageJ 1.x** (`ij`): the classic app
-- **ImageJ2**: modern core, runs 1.x via **imagej-legacy**
+- **ImageJ** (`ij`): the original app
+- **ImageJ2**: modern core, runs the original ImageJ via **imagej-legacy**
 - **Fiji**: ImageJ2 + curated plugins + Updater
 - **scripting-python**: Python language for Python mode
 - **scripting-appose-python**: Python via Appose
