@@ -1,0 +1,87 @@
+:root {
+  --java: #e76f00;
+  --java-bg: #fff3e6;
+  --py: #3572a5;
+  --py-bg: #e8f1fa;
+  --bridge: #7b3fa0;
+  --bridge-bg: #f3eafa;
+  --launch: #2a8a5c;
+  --launch-bg: #e6f6ee;
+  --muted: #666;
+}
+
+.slidev-layout h1 { margin-bottom: 0.6rem; }
+.slidev-layout { font-size: 0.95rem; }
+
+.java   { color: var(--java); font-weight: 600; }
+.py     { color: var(--py); font-weight: 600; }
+.bridge { color: var(--bridge); font-weight: 600; }
+.launch { color: var(--launch); font-weight: 600; }
+.muted  { color: var(--muted); }
+
+/* Layered stack diagrams */
+.stack { display: flex; flex-direction: column; gap: 6px; }
+.layer {
+  border: 2px solid; border-radius: 8px;
+  padding: 6px 10px; display: flex; align-items: center; gap: 10px;
+}
+.layer .name { font-weight: 700; min-width: 7.5em; }
+.layer .desc { font-size: 0.8em; opacity: 0.85; }
+.layer.j { border-color: var(--java); background: var(--java-bg); }
+.layer.p { border-color: var(--py); background: var(--py-bg); }
+.layer.b { border-color: var(--bridge); background: var(--bridge-bg); }
+.layer.l { border-color: var(--launch); background: var(--launch-bg); }
+.layer .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+
+.chip {
+  display: inline-block; font-size: 0.72em; padding: 1px 7px;
+  border-radius: 999px; border: 1px solid currentColor; background: #fff;
+  white-space: nowrap;
+}
+
+/* Two-column "big picture" */
+.world { display: grid; grid-template-columns: 1fr 9.5em 1fr; gap: 10px; align-items: start; }
+.world h3 { margin: 0 0 4px !important; padding: 0 !important; line-height: 1.6em !important; height: 1.6em; }
+.world .col { display: flex; flex-direction: column; gap: 6px; }
+.world .col h3 { text-align: center; margin: 0 0 4px; font-size: 1em; }
+.box {
+  border: 2px solid; border-radius: 8px; padding: 4px 8px;
+  font-size: 0.8em; text-align: center; line-height: 1.25;
+}
+.box small { display: block; opacity: 0.75; font-size: 0.85em; }
+.box.j { border-color: var(--java); background: var(--java-bg); }
+.box.p { border-color: var(--py); background: var(--py-bg); }
+.box.b { border-color: var(--bridge); background: var(--bridge-bg); }
+.box.l { border-color: var(--launch); background: var(--launch-bg); }
+.world .mid { display: flex; flex-direction: column; gap: 8px; }
+.world .mid h3 { margin: 0 0 4px; font-size: 1em; }
+.arrow { text-align: center; font-size: 0.75em; color: var(--bridge); font-weight: 600; }
+
+.legend { display: flex; gap: 14px; font-size: 0.75em; margin-top: 10px; justify-content: center; }
+.legend span::before {
+  content: ""; display: inline-block; width: 0.9em; height: 0.9em;
+  border-radius: 3px; margin-right: 4px; vertical-align: -0.1em; border: 2px solid;
+}
+.legend .lj::before { border-color: var(--java); background: var(--java-bg); }
+.legend .lp::before { border-color: var(--py); background: var(--py-bg); }
+.legend .lb::before { border-color: var(--bridge); background: var(--bridge-bg); }
+.legend .ll::before { border-color: var(--launch); background: var(--launch-bg); }
+
+table { font-size: 0.8em; }
+td, th { padding: 4px 8px !important; }
+
+.mermaid { display: flex; justify-content: center; }
+
+.callout {
+  border-left: 4px solid var(--bridge); background: var(--bridge-bg);
+  padding: 6px 12px; border-radius: 4px; font-size: 0.85em; margin-top: 10px;
+}
+
+/* Process-model diagrams */
+.proc {
+  border: 2px dashed #999; border-radius: 10px; padding: 8px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.proc > .title { font-size: 0.75em; color: var(--muted); text-align: center; font-weight: 600; }
+.proc-row { display: flex; gap: 14px; align-items: center; justify-content: center; }
+.wire { font-size: 0.75em; color: var(--bridge); text-align: center; font-weight: 600; }
