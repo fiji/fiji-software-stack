@@ -8,6 +8,23 @@
   --launch: #2a8a5c;
   --launch-bg: #e6f6ee;
   --muted: #666;
+  --chip-bg: #fff;
+  --proc-border: #999;
+}
+
+/* Note: dark-mode palette keeps the hues but swaps in dark fills and brighter accents. */
+.dark {
+  --java: #ff9a3c;
+  --java-bg: #3a2410;
+  --py: #6aa9e0;
+  --py-bg: #14283b;
+  --bridge: #c08ae6;
+  --bridge-bg: #2c1a3a;
+  --launch: #4cc58a;
+  --launch-bg: #123425;
+  --muted: #a0a0a0;
+  --chip-bg: #1f1f1f;
+  --proc-border: #777;
 }
 
 .slidev-layout h1 { margin-bottom: 0.6rem; }
@@ -35,7 +52,7 @@
 
 .chip {
   display: inline-block; font-size: 0.72em; padding: 1px 7px;
-  border-radius: 999px; border: 1px solid currentColor; background: #fff;
+  border-radius: 999px; border: 1px solid currentColor; background: var(--chip-bg);
   white-space: nowrap;
 }
 
@@ -79,7 +96,7 @@ td, th { padding: 4px 8px !important; }
 
 /* Process-model diagrams */
 .proc {
-  border: 2px dashed #999; border-radius: 10px; padding: 8px;
+  border: 2px dashed var(--proc-border); border-radius: 10px; padding: 8px;
   display: flex; flex-direction: column; gap: 6px;
 }
 .proc > .title { font-size: 0.75em; color: var(--muted); text-align: center; font-weight: 600; }
