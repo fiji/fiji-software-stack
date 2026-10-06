@@ -102,3 +102,22 @@ td, th { padding: 4px 8px !important; }
 .proc > .title { font-size: 0.75em; color: var(--muted); text-align: center; font-weight: 600; }
 .proc-row { display: flex; gap: 14px; align-items: center; justify-content: center; }
 .wire { font-size: 0.75em; color: var(--bridge); text-align: center; font-weight: 600; }
+
+/* Real-world examples matrix */
+.examples { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ex { border: 2px solid; border-radius: 8px; padding: 10px 14px; font-size: 0.9em; }
+.ex h3 { margin: 0 !important; padding: 0 !important; font-size: 1.15em; font-weight: 700; }
+.ex p { margin: 0 !important; }
+.ex small { display: block; color: var(--muted); }
+.ex ul { margin: 6px 0 0 !important; padding-left: 1.2em !important; }
+.ex li { margin: 2px 0 !important; line-height: 1.3; }
+.ex.j { border-color: var(--java); background: var(--java-bg); }
+.ex.p { border-color: var(--py); background: var(--py-bg); }
+.ex.b { border-color: var(--bridge); background: var(--bridge-bg); }
+.ex.j h3 { color: var(--java); }
+.ex.p h3 { color: var(--py); }
+.ex.b h3 { color: var(--bridge); }
+.tradeoffs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.75em; }
+.tradeoffs p { margin: 0 !important; }
+.tradeoffs ul { margin: 2px 0 0 !important; padding-left: 1.2em !important; }
+.tradeoffs li { margin: 0 !important; line-height: 1.3; }

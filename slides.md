@@ -481,6 +481,72 @@ result = ij.op().filter().gauss(img, 2.0)
 
 ---
 
+# Python in Fiji: real-world examples
+
+<div class="examples">
+<div class="ex j">
+
+### Jython
+<small>Script Fiji's Java plugins; nothing to install</small>
+
+- [TrackMate scripting](https://imagej.net/plugins/trackmate/scripting/scripting): headless batch tracking
+- [IsoView-GCaMP](https://github.com/acardona/scripts/tree/master/python/imagej/IsoView-GCaMP): light-sheet registration with ImgLib2
+
+</div>
+<div class="ex p">
+
+### Fiji Python mode
+<small>CPython packages next to the Fiji GUI</small>
+
+- [Cellpose + StarDist template](https://github.com/scijava/scripting-python/blob/main/src/main/resources/script_templates/PyImageJ/CellposeStarDistSegmentation.py): labels into the ROI Manager
+- [napari + Fiji in one process](https://forum.image.sc/t/fiji-latest-doesnt-open-on-windows/116912/12): same Dataset, two GUIs
+- [CLAHE with numba](https://forum.image.sc/t/fiji-clahe-10x-faster-for-stacks-image-sequences/117529): ~10× faster stacks
+
+</div>
+<div class="ex b">
+
+### Appose
+<small>Conflicting deep-learning dependencies, isolated</small>
+
+- [Fiji-Cellpose](https://github.com/Image-Analysis-Hub/cellpose-appose): Cellpose plugin for Fiji
+- [ABBA](https://github.com/BIOP/ijp-imagetoatlas): DeepSlice brain registration in its own environment
+- [StarDist template](https://github.com/scijava/scripting-appose-python/blob/main/src/main/resources/script_templates/Appose/StarDist_cellcast.py): cellcast, Python 3.12
+
+</div>
+<div class="ex p">
+
+### PyImageJ
+<small>Fiji as a library inside a Python tool</small>
+
+- [CellPhePy](https://github.com/uoy-research/CellPhePy/blob/main/src/cellphe/tracking/imagej.py): pulls only TrackMate from Maven
+- [Squid](https://github.com/Cephla-Lab/Squid/blob/master/software/tools/stitcher.py): microscope software running Fiji Stitching headless
+- [abba-python](https://github.com/BIOP/abba_python): the ABBA API from Python
+
+</div>
+</div>
+
+<div class="callout tradeoffs">
+<div>
+
+<b class="py">Easier in Python mode</b>
+- Java sees any Python memory; Appose needs shared-memory NDArrays
+- Each Java call is one JNI hop, not an Appose message round trip
+- Python can implement Java interfaces (`@JImplements`) and add Python methods to Java classes (`@JImplementationFor`)
+
+</div>
+<div>
+
+<b class="bridge">Easier in Appose</b>
+- Conflicting dependencies (numpy 1 vs 2, Python 3.11 vs 3.12) side by side
+- A worker crash or hang can be killed without taking down Fiji
+- No native library clashes (CUDA, OpenMP) inside the JVM process
+- Plugins create their own environments; Fiji runs in normal Java mode
+
+</div>
+</div>
+
+---
+
 # Who is in charge?
 
 <div class="grid grid-cols-2 gap-8 mt-4">
